@@ -4,8 +4,6 @@ Repositório destinado aos arquivos do sistema socilitado na cadeira de linguage
 
 ## Estrutura inicial do projeto
 
----
-
 Essa é a estrutura que estamos propondo para o código da aplicação onde irá ter o **client** e o **server** no mesmo repositório com a finalidade de simplificar tendo tudo em um único lugar. Obs: o **server** e **client** não vão compartilhar módulos, cada um terá o seu próprio ambiente de desenvolvimento.
 
 ```
@@ -16,8 +14,6 @@ Essa é a estrutura que estamos propondo para o código da aplicação onde irá
 ```
 
 ## Fluxo de git para trabalhar no projeto
-
----
 
 - Branchs principais:
   - **Main** contém o código que vai para produção
