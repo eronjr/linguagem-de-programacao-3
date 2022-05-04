@@ -1,6 +1,7 @@
 # linguagem-de-programacao-3
 
 Repositório destinado aos arquivos do sistema socilitado na cadeira de linguagem de programação 3 do curso de Ciências da Computação
+A finalidade da aplicação é servir para mostrar os indicadores criminais do Estado do Rio Grande do Sul (https://www.ssp.rs.gov.br/indicadores-criminais), entre os anos de 2012 e 2022.
 
 ## Estrutura inicial do projeto
 
