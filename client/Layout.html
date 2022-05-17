@@ -26,11 +26,60 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
 
+        <script>
+        window.onload = function() {
+
+        var dataPoints = [];
+
+        var options = {
+            theme: "light2",
+            title: {
+                text: "Live Data"
+            },
+            data: [{
+                type: "line",
+                dataPoints: dataPoints
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
+        updateData();
+
+        // Initial Values
+        var xValue = 0;
+        var yValue = 10;
+        var newDataCount = 6;
+
+        function addData(data) {
+            if(newDataCount != 1) {
+                $.each(data, function(key, value) {
+                    dataPoints.push({x: value[0], y: parseInt(value[1])});
+                    xValue++;
+                    yValue = parseInt(value[1]);
+                });
+            } else {
+                //dataPoints.shift();
+                dataPoints.push({x: data[0][0], y: parseInt(data[0][1])});
+                xValue++;
+                yValue = parseInt(data[0][1]);
+            }
+          
+            newDataCount = 1;
+          
+            $("#chartContainer").CanvasJSChart().render()
+            setTimeout(updateData, 1500);   
+        }
+
+        function updateData() {
+            $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart="+xValue+"&ystart="+yValue+"&length="+newDataCount+"&type=json", addData);
+        }
+
+        }
+        </script>
+
     </head>
 
     <body>
-        
-        <nav class="navbar navbar-dark bg-primary text-center">
+        <nav class="navbar fixed-top navbar-light bg-primary">
             <div class="container">
                 <span class="text-title">Indicadores Criminais</span>
             </div>
@@ -38,30 +87,131 @@
         <div class="main">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-xl-4 col-xxl-3">
+                    <div class="col-lg-4 col-xl-3 col-xxl-3">
                         <div class="card">
                             <div class="card-head">
                                 <h3><strong>Filtros</strong></h3>
                             </div>
                             <div class="card-body">
-                                <div>
-                                    Filtros aqui
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 col-lg-12">
+                                        <div class="filter">
+                                            <div class="filter-head">
+                                                <strong>Cidade</strong>
+                                            </div>
+                                            <div class="filter-body">
+                                                <div class="rolagem">
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="cidade1">
+                                                        <label class="form-check-label" for="cidade1">Cidade 1</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="cidade2">
+                                                        <label class="form-check-label" for="cidade2">Cidade 2</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="cidade3">
+                                                        <label class="form-check-label" for="cidade3">Cidade 3</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="cidade4">
+                                                        <label class="form-check-label" for="cidade4">Cidade 4</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="cidade5">
+                                                        <label class="form-check-label" for="cidade5">Cidade 5</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="cidade6">
+                                                        <label class="form-check-label" for="cidade6">Cidade 6</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="cidade7">
+                                                        <label class="form-check-label" for="cidade7">Cidade 7</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-12">
+                                        <div class="filter">
+                                            <div class="filter-head">
+                                                <strong>Categoria</strong>
+                                            </div>
+                                            <div class="filter-body">
+                                                <div class="rolagem">
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="categoria1">
+                                                        <label class="form-check-label" for="categoria1">Categoria 1</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="categoria2">
+                                                        <label class="form-check-label" for="categoria2">Categoria 2</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="categoria3">
+                                                        <label class="form-check-label" for="categoria3">Categoria 3</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="categoria4">
+                                                        <label class="form-check-label" for="categoria4">Categoria 4</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="categoria5">
+                                                        <label class="form-check-label" for="categoria5">Categoria 5</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="categoria6">
+                                                        <label class="form-check-label" for="categoria6">Categoria 6</label>
+                                                    </div>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="categoria7">
+                                                        <label class="form-check-label" for="categoria7">Categoria 7</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-12">
+                                        <div>
+                                            <label for="date-de" class="form-label">De:</label>
+                                            <input type="date" class="form-control edge" id="date-de">
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-12">
+                                        <div>
+                                            <label for="date-ate" class="form-label">Até:</label>
+                                            <input type="date" class="form-control edge" id="date-ate">
+                                        </div>
+                                        <br>
+                                    </div>
                                 </div>
                                 <br>
-                                <div class="d-grid gap-2">
-                                    <button type="button" class="btn btn-success btn-block edge"><strong>Filtrar</strong></button>
+                                <div class="row">
+                                    <div class="col-sm-3 col-md-4 col-lg-12"></div>
+                                    <div class="col-sm-6 col-md-4 col-lg-12">
+                                        <div class="d-grid gap-2">
+                                            <button type="button" class="btn btn-success btn-block edge"><strong>Filtrar</strong></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-xl-8 col-xxl-9">
+                    <div class="col-lg-8 col-xl-9 col-xxl-9">
                         <div class="card card-body">
-                            Graficos aqui
+                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 
     </body>
 </html>
