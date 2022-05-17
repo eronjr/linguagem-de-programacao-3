@@ -9,6 +9,7 @@ body {
 	background: #E6E6E6;
     width: 100%; 
     height: 100vh;
+    padding-top: 80px;
 }
 
 .main {
@@ -38,6 +39,26 @@ body {
 
 .card-body {
 	padding: 25px;
+}
+
+.filter-head {
+	background: #3669f6;
+	color: #FFFFFF;
+	padding: 7px 13px;
+	border-radius: 12px 12px 0px 0px;
+}
+
+.filter-body {
+	padding: 13px;
+	height: 160px;
+	border: 1px solid #ced4da;
+	border-top: none;
+	border-radius: 0px 0px 12px 12px;
+}
+
+.rolagem {
+	height: 130px;
+	overflow: auto;
 }
 
 .edge {
