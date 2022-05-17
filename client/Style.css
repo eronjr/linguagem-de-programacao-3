@@ -1,0 +1,45 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background: #E6E6E6;
+    width: 100%; 
+    height: 100vh;
+}
+
+.main {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.text-title {
+    font-family: 'Passion One', cursive;
+    color: #FFFFFF;
+    font-size: 40px;
+}
+
+.card {
+	background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    margin-bottom: 20px;
+}
+
+.card-head {
+	background: #FAFAFA;
+	padding: 20px 25px 10px 25px;
+	border-bottom: 1px solid #ced4da;
+	border-radius: 20px 20px 0px 0px;
+}
+
+.card-body {
+	padding: 25px;
+}
+
+.edge {
+	border-radius: 12px;
+}
