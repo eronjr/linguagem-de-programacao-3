@@ -71,7 +71,7 @@ class Indicadores:
             self.get_indicador(coluna)
             
     def get_indicador(self, coluna, anos=None): 
-        lista_homicidio_doloso = []
+        lista_indices_criminais = []
         if anos and isinstance(anos, list):
           self.indicadores = {ano:indicadores[ano] for ano in anos}
         
@@ -79,17 +79,17 @@ class Indicadores:
             print(caminho)
             #caminho = 'indicadores/13192731-site-geral-e-municipios-2013-publicacao.xlsx'
             indices = read_excel(caminho, header=1)
-            homicidio_doloso = indice_geral(indices, coluna)
+            indices_criminais = indice_geral(indices, coluna)
 
             
-            homicidio_doloso.fillna(value = 0,  
+            indices_criminais.fillna(value = 0,  
                       inplace = True
             )
 
-            lista_homicidio_doloso.append(np.array(homicidio_doloso))
+            lista_indices_criminais.append(np.array(indices_criminais))
 
-        td = len(lista_homicidio_doloso)
-        dados = np.array(lista_homicidio_doloso)
+        td = len(lista_indices_criminais)
+        dados = np.array(lista_indices_criminais)
         
         dados = dados.reshape(12, td)
         dados_df = pd.DataFrame(dados)
