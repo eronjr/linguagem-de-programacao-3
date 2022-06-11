@@ -6,7 +6,7 @@
 }
 
 body {
-	background: #E6E6E6;
+    background: #E6E6E6;
     width: 100%; 
     height: 100vh;
     padding-top: 80px;
@@ -24,46 +24,46 @@ body {
 }
 
 .card {
-	background: #FFFFFF;
+    background: #FFFFFF;
     border-radius: 20px;
     border: 1px solid #ced4da;
     margin-bottom: 20px;
 }
 
 .card-head {
-	background: #FAFAFA;
-	padding: 20px 25px 10px 25px;
-	border-bottom: 1px solid #ced4da;
-	border-radius: 20px 20px 0px 0px;
+    background: #FAFAFA;
+    padding: 20px 25px 10px 25px;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 20px 20px 0px 0px;
 }
 
 .card-body {
-	padding: 25px;
+    padding: 25px;
 }
 
 .filter-head {
-	background: #3669f6;
-	color: #FFFFFF;
-	padding: 7px 13px;
-	border-radius: 12px 12px 0px 0px;
+    background: #3669f6;
+    color: #FFFFFF;
+    padding: 7px 13px;
+    border-radius: 12px 12px 0px 0px;
 }
 
 .filter-body {
-	padding: 13px;
-	height: 160px;
-	border: 1px solid #ced4da;
-	border-top: none;
-	border-radius: 0px 0px 12px 12px;
+    padding: 13px;
+    height: 160px;
+    border: 1px solid #ced4da;
+    border-top: none;
+    border-radius: 0px 0px 12px 12px;
 }
 
 .rolagem {
-	height: 130px;
-	overflow: auto;
+    height: 130px;
+    overflow: auto;
     padding: 0px 5px;
 }
 
 .edge {
-	border-radius: 12px;
+    border-radius: 12px;
 }
 
 .card {
@@ -75,37 +75,38 @@ body {
 }
 
 #logp {
-    padding: 30px 80px;
+    padding: 20px 0px;
 }
 
 .form-group {
     margin: 10px 30px;
 }
 
-input[type=button], input[type=submit], input[type=reset]  {
+.separador {
+    margin-top: 30px;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.default-button {
     background-color: #3669f6;
     border: none;
     color: white;
-    padding: 12px 80px;
+    padding: 12px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     text-transform: uppercase;
-    font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    font-size: 14px;
+    margin-top: 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-   
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-    background-color: #3699f6;
+.default-button:hover  {
+    background-color: #2b5ce1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
   
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -139,7 +140,7 @@ input[type=text], input[type=email], input[type=password] {
   
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #3669f6;
 }
   
 input[type=text]:placeholder, input[type=email]:placeholder, input[type=password]:placeholder {
