@@ -19,63 +19,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
         <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="Style.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
         <!-- Fontes -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
-
-        <script>
-        window.onload = function() {
-
-        var dataPoints = [];
-
-        var options = {
-            theme: "light2",
-            title: {
-                text: "Live Data"
-            },
-            data: [{
-                type: "line",
-                dataPoints: dataPoints
-            }]
-        };
-        $("#chartContainer").CanvasJSChart(options);
-        updateData();
-
-        // Initial Values
-        var xValue = 0;
-        var yValue = 10;
-        var newDataCount = 6;
-
-        function addData(data) {
-            if(newDataCount != 1) {
-                $.each(data, function(key, value) {
-                    dataPoints.push({x: value[0], y: parseInt(value[1])});
-                    xValue++;
-                    yValue = parseInt(value[1]);
-                });
-            } else {
-                //dataPoints.shift();
-                dataPoints.push({x: data[0][0], y: parseInt(data[0][1])});
-                xValue++;
-                yValue = parseInt(data[0][1]);
-            }
-          
-            newDataCount = 1;
-          
-            $("#chartContainer").CanvasJSChart().render()
-            setTimeout(updateData, 1500);   
-        }
-
-        function updateData() {
-            $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart="+xValue+"&ystart="+yValue+"&length="+newDataCount+"&type=json", addData);
-        }
-
-        }
-        </script>
-
     </head>
 
     <body>
@@ -94,46 +43,6 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-6 col-md-6 col-lg-12">
-                                        <div class="filter fadeIn first">
-                                            <div class="filter-head">
-                                                <strong>Cidade</strong>
-                                            </div>
-                                            <div class="filter-body">
-                                                <div class="rolagem">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="cidade1">
-                                                        <label class="form-check-label" for="cidade1">Cidade 1</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="cidade2">
-                                                        <label class="form-check-label" for="cidade2">Cidade 2</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="cidade3">
-                                                        <label class="form-check-label" for="cidade3">Cidade 3</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="cidade4">
-                                                        <label class="form-check-label" for="cidade4">Cidade 4</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="cidade5">
-                                                        <label class="form-check-label" for="cidade5">Cidade 5</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="cidade6">
-                                                        <label class="form-check-label" for="cidade6">Cidade 6</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="cidade7">
-                                                        <label class="form-check-label" for="cidade7">Cidade 7</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br>
-                                    </div>
                                     <div class="col-sm-6 col-md-6 col-lg-12">
                                         <div class="filter fadeIn first">
                                             <div class="filter-head">
@@ -212,6 +121,7 @@
 
         <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
         <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        <script src="assets/js/main.js"></script>
 
     </body>
 </html>
