@@ -13,8 +13,10 @@ from bs4 import BeautifulSoup as bs
 from multiprocessing.pool import ThreadPool
 import os
 
+DIR_ATUAL = os.getcwd()
+
 try:
-	os.mkdir("indicadores")
+	os.mkdir(f"{DIR_ATUAL}/server/indicadores")
 	print("Diretório indicadores criado")
 except FileExistsError:
 	pass
@@ -22,7 +24,7 @@ except FileExistsError:
 def download_url(url):
 	print("downloading: ",url)
 	file_name_start_pos = url.rfind("/") + 1
-	file_name = f"{os.getcwd()}/indicadores/{url[file_name_start_pos:]}"
+	file_name = f"{os.getcwd()}/server/indicadores/{url[file_name_start_pos:]}"
 	
 	r = httpx.get(url)
 	if r.status_code == httpx.codes.ok:
@@ -62,6 +64,3 @@ class ParserIndicadores:
 
 	def get_indicadores(self):
 		r = self.__get(self.url)
-
-# if __name__ == '__main__':
-# 	ParserIndicadores().get_indicadores()

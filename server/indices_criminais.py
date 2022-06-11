@@ -2,13 +2,21 @@ import pandas as pd
 import numpy as np
 import os
 import re
+import urllib.parse
 
-indicadores = [f'indicadores/{caminho.strip()}'
-               for caminho in os.popen("ls indicadores").readlines()
+DIR_ATUAL = os.getcwd()
+
+# import download_indicadores
+
+# ParserIndicadores().get_indicadores()
+
+indicadores = [f'server/indicadores/{caminho.strip()}'
+               for caminho in os.popen(f"ls server/indicadores/").readlines()
 ]
 
+
 try:
-    os.mkdir("indicadores_graficos")
+    os.mkdir(f"{DIR_ATUAL}/server/indicadores_graficos")
     print("Diretório indicadores_graficos criado")
 except FileExistsError:
     pass
@@ -23,6 +31,7 @@ indicadores_anos  = [re.findall(REGEX_ANO,ano)[0]
                                       for ano in indicadores]
 
 indicadores = dict(zip(indicadores_anos,indicadores))
+
 
 keys_indicadores = {
     'Unnamed: 2': 'Homicídio Doloso', 
@@ -40,6 +49,7 @@ keys_indicadores = {
     'Unnamed: 14': 'Vítimas de Latrocínio', 
     'Unnamed: 15': 'Vítimas de Lesão Corp. Seg. Morte'
 }
+
 """
 dict_keys(['GERAL', '201*', 'JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'])
 
@@ -73,10 +83,12 @@ class Indicadores:
     def get_indicador(self, coluna, anos=None): 
         lista_indices_criminais = []
         if anos and isinstance(anos, list):
-          self.indicadores = {ano:indicadores[ano] for ano in anos}
+            self.indicadores = {
+                ano:indicadores[ano] for ano in anos
+            }
+            anos.sort()
         
         for caminho in self.indicadores.values():
-            print(caminho)
             #caminho = 'indicadores/13192731-site-geral-e-municipios-2013-publicacao.xlsx'
             indices = read_excel(caminho, header=1)
             indices_criminais = indice_geral(indices, coluna)
@@ -95,10 +107,15 @@ class Indicadores:
         dados_df = pd.DataFrame(dados)
         
         
-        
+        anos = '-'.join(map(str, anos))
+
         plot = dados_df.plot(
-            title=f"{keys_indicadores[coluna]} no RS durante os anos de 2012 e 2022"
+            title=f"{keys_indicadores[coluna]} no RS durante os anos de {anos}"
         )
 
         fig = plot.get_figure()
-        fig.savefig(f"indicadores_graficos/indices_geral_{keys_indicadores[coluna]}.png")
+        path_indice = f"server/indicadores_graficos/indices_anos_{anos}_geral_{'-'.join(keys_indicadores[coluna].split())}.png"        
+        fig.savefig(path_indice)
+        # return send_file(path_indice, mimetype='image/png')
+        return  f"{DIR_ATUAL}/{path_indice}"
+
