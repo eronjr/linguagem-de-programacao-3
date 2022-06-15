@@ -17,7 +17,7 @@ Parâmetros
 
 --- 
 
-**coluna** obrigatório, representa o indicador que queremos que seja feito o levamento atravéz de todos os anos
+**coluna** obrigatório, representa o indicador que queremos que seja feito o levamento através de todos os anos
 
 ---
 **anos** opcional, representa uma lista de anos a serem passadas, quando informada no método,
