@@ -12,4 +12,4 @@ def login():
 @app.route("/")
 def index():
 	print(os.getcwd())
-	return render_template("Layout.html") 
+	return render_template("index.html", content="Testing") 

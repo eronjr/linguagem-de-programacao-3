@@ -1,9 +1,11 @@
 from flask import Flask
+from flask_bootstrap import Bootstrap4
 
 app = Flask(__name__,
 	template_folder='../client',
 	static_folder='../client')
 
+bootstrap = Bootstrap4(app)
 
 keys_indicadores = {
     'Unnamed: 2': 'Homicídio Doloso', 
@@ -25,6 +27,8 @@ keys_indicadores = {
 CATEGORIAS = {f"categoria{num+1}":desc 
 	for num, desc in enumerate(keys_indicadores.items())
 }
+
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 from app import api
 from app import routes
