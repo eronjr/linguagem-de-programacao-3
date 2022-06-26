@@ -1,11 +1,13 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap4
+# from flask_bootstrap import Bootstrap4
 
 app = Flask(__name__,
-	template_folder='../client',
-	static_folder='../client')
+	template_folder='../client', #index.html/login.html
+	static_folder='../client/assets' #css/js
+)
 
-bootstrap = Bootstrap4(app)
+
+# bootstrap = Bootstrap4(app)
 
 keys_indicadores = {
     'Unnamed: 2': 'Homicídio Doloso', 
@@ -23,6 +25,9 @@ keys_indicadores = {
     'Unnamed: 14': 'Vítimas de Latrocínio', 
     'Unnamed: 15': 'Vítimas de Lesão Corp. Seg. Morte'
 }
+
+
+
 
 CATEGORIAS = {f"categoria{num+1}":desc 
 	for num, desc in enumerate(keys_indicadores.items())
