@@ -13,6 +13,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.widgets as wg
 import httpx
+import os
 from bs4 import BeautifulSoup as bs
 from importlib import reload 
 import openpyxl
@@ -54,6 +55,14 @@ for url in url_downloads[:12]:
 #    return ano2
 #  elif ano == '2014':
 #    return ano3
+
+DIR_ATUAL = os.getcwd()
+
+try:
+    os.mkdir(f"{DIR_ATUAL}/server/indicadores_graficos")
+    print("Diretório indicadores_graficos criado")
+except FileExistsError:
+    pass
 
 def intervaloAnos(Anoinicial,anoTermino):
   diferença = int(anoTermino) - int(Anoinicial)
@@ -269,8 +278,10 @@ def contagemCrimesMensal(mes,listadeAnos,ListaCrimes,save=True):
     if save == False:
       plt.show()
     else:
-      plt.savefig(f'D:/python/local/graficos/grafico {cr} em {mes} de {ano}.png',bbox_inches = "tight")
+      path_indice = f"server/indicadores_graficos/grafico {cr} em {mes} de {ano}.png"
+      plt.savefig(path_indice,bbox_inches = "tight")
       plt.clf()
+      return  f"{DIR_ATUAL}/{path_indice}"
 
 #contagemCrimesMensal('abril',['2012','2013','2014','2015'],['Furto','Estelionato'],save=False)
 
@@ -279,4 +290,4 @@ def contagemCrimesMensal(mes,listadeAnos,ListaCrimes,save=True):
 #hexa
 
 if __name__ == '__main__':
-  contagemCrimesMensal('maio',['2012','2013','2014'],['Furto','Roubos'])
+  contagemCrimesMensal('maio',['2012','2013','2014'],['Delitos Relacionados à Armas e Munições'])
