@@ -1,6 +1,8 @@
+from requests import request
 from app import app
 from flask import render_template
 import os
+import requests
 
 @app.route("/login")
 def login():
