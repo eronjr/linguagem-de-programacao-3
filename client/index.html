@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-    {% block head %}
     
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,30 +13,23 @@
         <!-- Logo símbolo -->
         <link rel="icon" type="#" href="#" />
 
-        {% block styles %}
-            <!-- Bootstrap CSS -->
-            {{ bootstrap.load_css() }}
-        {% endblock %}
-
-        <!-- Bootstrap 4 -->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
         <!-- Ícones -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
         <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
         <!-- Fontes -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
 
-    {% endblock %}
+    
     </head>
 
     <body>
-    {% block content %}
+    
     
         <nav class="navbar fixed-top navbar-light bg-primary">
             <div class="container">
@@ -130,14 +122,14 @@
             </div>
         </div>
 
-    {% endblock %}
 
-    {% block scripts %}
+
+    
 
         <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
         <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
         <script src="assets/js/main.js"></script>
 
-    {% endblock %}
+
     </body>
 </html>
