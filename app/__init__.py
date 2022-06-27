@@ -7,6 +7,7 @@ app = Flask(__name__,
 )
 
 
+
 # bootstrap = Bootstrap4(app)
 
 keys_indicadores = {
@@ -29,7 +30,14 @@ keys_indicadores = {
 
 
 
-CATEGORIAS = {f"categoria{num+1}":desc 
+
+class CategoriaDesc:
+    def __init__(self, categoria_id, descricao, unnamed):
+        self.categoria_id = categoria_id
+        self.descricao = descricao
+        self.unnamed = unnamed 
+
+CATEGORIAS = {f"categoria{num+1}":CategoriaDesc(f"categoria{num+1}", desc[1], desc[0]) 
 	for num, desc in enumerate(keys_indicadores.items())
 }
 
