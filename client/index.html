@@ -53,34 +53,14 @@
                                             </div>
                                             <div class="filter-body">
                                                 <div class="rolagem">
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="categoria1">
-                                                        <label class="form-check-label" for="categoria1">Categoria 1</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="categoria2">
-                                                        <label class="form-check-label" for="categoria2">Categoria 2</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="categoria3">
-                                                        <label class="form-check-label" for="categoria3">Categoria 3</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="categoria4">
-                                                        <label class="form-check-label" for="categoria4">Categoria 4</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="categoria5">
-                                                        <label class="form-check-label" for="categoria5">Categoria 5</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="categoria6">
-                                                        <label class="form-check-label" for="categoria6">Categoria 6</label>
-                                                    </div>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input" type="checkbox" id="categoria7">
-                                                        <label class="form-check-label" for="categoria7">Categoria 7</label>
-                                                    </div>
+                                                    {% block categorias %}
+                                                        {% for categoria in categorias %}
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="{{categoria.categoria_id}}">
+                                                            <label class="form-check-label" for="{{categoria.categoria_id}}">{{categoria.descricao}}</label>
+                                                        </div>
+                                                        {% endfor %}
+                                                    {% endblock %}
                                                 </div>
                                             </div>
                                         </div>
