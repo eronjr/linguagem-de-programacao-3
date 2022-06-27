@@ -28,7 +28,7 @@ def api_get_indicadores():
             
             indicadores = indices_criminais.Indicadores()
             path_indice = indicadores.get_indicador(
-                    CATEGORIAS[indicador][0], 
+                    CATEGORIAS[indicador].unnamed, 
                     anos=anos
             )
         
@@ -47,8 +47,7 @@ def api_get_mensal():
             mes = list(map(str.lower, params.get('mes')))
             indicador = params.get('categoria')   
             indicadores = contagemCrimesMensal
-            crimes = [CATEGORIAS[indicador[0]][1]]
-            print(mes, anos, crimes)
+            crimes = [CATEGORIAS[indicador[0]].descricao]
             path_indice = indicadores(
                     mes=mes[0],
                     listadeAnos=anos,
@@ -65,18 +64,30 @@ def api_get_mensal():
 def doc():
     anos = ",".join(map(str, range(2012, 2023)))
     categorias = ",".join(CATEGORIAS.keys())
-    categorias_desc = "<br>".join(map(lambda v: f"{v[0]} --> {v[1][1]}",CATEGORIAS.items()))
+    categorias_desc = "<br>".join(map(lambda v: f"{v.categoria_id} --> {v.descricao}",CATEGORIAS.values()))
     ex_ano = "{'anos':[2015,2016], 'categoria':'categoria1'}"
     ex_mes = "{'anos':[2016,2020], 'categoria':'categoria4', 'mes':'maio'}"
-    
-    return f"""<h1>Como usar a API</h1>
+    style = """<style>
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 105%;
+}
+</style>""" 
 
-parametros: <b><pre>anos<pre></b> - representa o escopo de determinado indicador requerido.
-valores para o parâmetro.<br>
+    return f"""{style}
+    <h1>Como usar a API</h1>
+
+parametros: 
+
+<b><pre>anos</pre></b> 
+- representa o escopo de determinado indicador requerido.<br>valores para o parâmetro.<br>
 {anos}
 
-<b><pre>categoria</b>
-- representa indicador que deseja-se obter, a descrição do indicador está no final da página.
+<b><pre>categoria</pre></b>
+- representa indicador que deseja-se obter, a descrição do indicador está no final da página.<br>
 valores para o parâmetro.<br>
 
 {categorias}
@@ -84,20 +95,28 @@ valores para o parâmetro.<br>
 <h2>Pegando os dados anuais</h2>
 
 exemplo de requisição<br>
-curl http://127.0.0.1:5000/api/indicadores_anual?anos=2015&anos=2016&anos=2022&categoria=categoria1
 
-import requests
+<br>usando curl<br>
+<code>curl http://127.0.0.1:5000/api/indicadores_anual?anos=2015&anos=2016&anos=2022&categoria=categoria1</code>
+
+<br>usando python<br>
+<code>
+import requests<br>
 r = requests.get('http://127.0.0.1:5000/api/indicadores_anual', params={ex_ano})
-
+</code>
 
 <h2>Pegando os dados anuais a um mês pré fixado</h2>
 
 exemplo de requisição<br>
-curl http://127.0.0.1:5000/api/indicadores_mensal?anos=2016&anos=2020&categoria=categoria4&mes=maio
+<br>usando curl<br>
+<code>curl http://127.0.0.1:5000/api/indicadores_mensal?anos=2016&anos=2020&categoria=categoria4&mes=maio</code>
 
-import requests
+<br>usando python<br>
+<code>
+import requests<br>
 r = requests.get('http://127.0.0.1:5000/api/indicadores_mensal', params={ex_mes})
-
+</code>
+<br>
 é retornado uma imagem quando é feito <b>GET</b> com sucesso
 descrição das categorias<br>
 <h2>Descrição de Categoria</h2>
