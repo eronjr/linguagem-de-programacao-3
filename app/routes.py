@@ -1,4 +1,6 @@
 from app import app
+from app import CATEGORIAS
+
 from flask import render_template
 import os
 
@@ -10,4 +12,4 @@ def login():
 @app.route("/index")
 @app.route("/")
 def index():
-	return render_template("index.html", content="Testing") 
+	return render_template("index.html", categorias=CATEGORIAS.values()) 
