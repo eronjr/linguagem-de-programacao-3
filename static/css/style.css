@@ -1,0 +1,201 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #E6E6E6;
+    width: 100%; 
+    height: 100vh;
+    padding-top: 80px;
+}
+
+.main {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.text-title {
+    font-family: 'Passion One', cursive;
+    color: #FFFFFF;
+    font-size: 40px;
+}
+
+.card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    margin-bottom: 20px;
+}
+
+.card-head {
+    background: #FAFAFA;
+    padding: 20px 25px 10px 25px;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.filter-head {
+    background: #3669f6;
+    color: #FFFFFF;
+    padding: 7px 13px;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.filter-body {
+    padding: 13px;
+    height: 160px;
+    border: 1px solid #ced4da;
+    border-top: none;
+    border-radius: 0px 0px 12px 12px;
+}
+
+.rolagem {
+    height: 130px;
+    overflow: auto;
+    padding: 0px 5px;
+}
+
+.edge {
+    border-radius: 12px;
+}
+
+.card {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+#logp {
+    padding: 20px 0px;
+}
+
+.form-group {
+    margin: 10px 30px;
+}
+
+.separador {
+    margin-top: 30px;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.default-button {
+    background-color: #3669f6;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.default-button:hover  {
+    background-color: #2b5ce1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+  
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+input[type=text], input[type=email], input[type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+  
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #3669f6;
+}
+  
+input[type=text]:placeholder, input[type=email]:placeholder, input[type=password]:placeholder {
+    color: #cccccc;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  
+.fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+  
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+  
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+}
+
+.fadeIn.first {
+    -webkit-animation-delay: 0.05s;
+    -moz-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+}
+
+.fadeIn.first {
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+  
+.fadeIn.second {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+  
+.fadeIn.third {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+  
+*:focus {
+    outline: none;
+}
+
+/*.table tr, th {
+  padding-top: 2px;
+  padding-bottom: 5px;
+  padding: auto;
+}*/
