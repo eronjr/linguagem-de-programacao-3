@@ -1,5 +1,5 @@
 from flask import Flask
-# from flask_bootstrap import Bootstrap4
+from flask_bootstrap import Bootstrap4
 
 app = Flask(__name__,
 	template_folder='../client', #index.html/login.html
@@ -8,7 +8,7 @@ app = Flask(__name__,
 
 
 
-# bootstrap = Bootstrap4(app)
+bootstrap = Bootstrap4(app)
 
 keys_indicadores = {
     'Unnamed: 2': 'Homicídio Doloso', 
