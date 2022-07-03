@@ -23,7 +23,7 @@ plt=reload(plt)
 url_root = 'https://www.ssp.rs.gov.br'
 url = 'https://www.ssp.rs.gov.br/indicadores-criminais' 
 
-text = httpx.get(url)	
+text = httpx.get(url)
 soup = bs(text,features="html.parser")
 artigo__texto = soup.find('div',{'class':'artigo__texto'})
 anos = artigo__texto.find_all('h2') 
