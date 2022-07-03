@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="autor" content="#">
+        <meta name="description" content="#">
+        <meta name="keywords" content="#">
+
+        <title> Indicadores Criminais </title>
+        
+        <!-- Logo símbolo -->
+        <link rel="icon" type="#" href="#" />
+
+
+        <!-- Ícones -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+        
+        {% block style %}
+            {{ bootstrap.load_css() }}
+        {% endblock style %}
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        <!-- Fontes -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+    
+        <nav class="navbar fixed-top navbar-light bg-primary">
+            <div class="container">
+                <span class="text-title">Login</span>
+            </div>
+        </nav>
+        <div class="main">
+            <div class="container">
+                <div class="row justify-content-sm-center">
+                    <div class="col-sm-8 col-md-6 col-lg-6 col-xl-4 col-xxl-4">
+                        <div class="card">
+                            <form method="POST" action="{{ url_for('web_app.login') }}" id='form_login'>
+                                {% block content %}
+                                 {% if message %}
+                                    <span style='color:red'>{{message}}</span>
+
+                                  {% endif %}
+                                {% endblock  %}                                                                  
+                                <div class="card-head">
+                                    <h3><strong>Fazer login</strong></h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group fadeIn first">
+                                        <input type="email" id="email" placeholder="Usuário", name="email">
+                                    </div>
+                                    <div class="form-group fadeIn second">
+                                        <input type="password" id="password" placeholder="Senha", name="password">
+                                    </div>
+                                    <div class="form-group fadeIn third">
+                                        <table>
+                                        <tr>
+                                        <th>
+                                            <button type="submit" class="default-button" onclick="verifyLogin()"><strong>Entrar</strong></button>    
+                                            
+                                        </th>
+                                        <th>
+                                            <button type="submit" class="default-button" id='register'><strong>Registrar</strong></button>
+                                        </th>
+                                        </tr>
+                                        </table>
+
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    </body>
+</html>

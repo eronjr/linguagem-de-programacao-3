@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="autor" content="#">
+        <meta name="description" content="#">
+        <meta name="keywords" content="#">
+
+        <title> Indicadores Criminais </title>
+        
+        <!-- Logo símbolo -->
+        <link rel="icon" type="#" href="#" />
+
+        {% block style %}
+            {{ bootstrap.load_css() }}
+        {% endblock style %}
+
+        <!-- Ícones -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+        <!-- Fontes -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
+
+    
+    </head>
+
+    <body>
+    
+    
+        <nav class="navbar fixed-top navbar-light bg-primary">
+            <div class="container">
+                <span class="text-title">Indicadores Criminais</span>
+            </div>
+        </nav>
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-xl-3 col-xxl-3">
+                        <div class="card">
+                            <div class="card-head">
+                                <h3><strong>Filtros</strong></h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 col-lg-12">
+                                        <div class="filter fadeIn first">
+                                            <div class="filter-head">
+                                                <strong>Categoria</strong>
+                                            </div>
+                                            <div class="filter-body">
+                                                <div class="rolagem">
+                                                    {% block categorias %}
+                                                        {% for categoria in categorias %}
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="{{categoria.categoria_id}}">
+                                                            <label class="form-check-label" for="{{categoria.categoria_id}}">{{categoria.descricao}}</label>
+                                                        </div>
+                                                        {% endfor %}
+                                                    {% endblock %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-12">
+                                        <div class="fadeIn second">
+                                            <label for="date-de" class="form-label">De:</label>
+                                            <input type="date" class="form-control edge" id="date-de">
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-lg-12">
+                                        <div class="fadeIn second">
+                                            <label for="date-ate" class="form-label">Até:</label>
+                                            <input type="date" class="form-control edge" id="date-ate">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-3 col-md-4 col-lg-12"></div>
+                                    <div class="col-sm-6 col-md-4 col-lg-12">
+                                        <div class="d-grid gap-2 fadeIn third">
+                                            <button onclick="updateGraphic()" type="submit" class="default-button"><strong>Filtrar</strong></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-xl-9 col-xxl-9">
+                        <div class="card card-body">
+                            <img id="plot-graphic" src="https://indicadoresrs.herokuapp.com/api/indicadores_anual?anos=2015&anos=2016&categoria=categoria6" alt="Gráfico">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+        {% block body %}
+            {{ bootstrap.load_css() }}
+        {% endblock body %}
+
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+    </body>
+</html>
