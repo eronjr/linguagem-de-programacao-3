@@ -31,7 +31,7 @@ class DevelopmentConfig(Config):
     TESTING = True
     DEBUG = True
     IP_HOST = 'localhost'
-    PORT_HOST = 8000
+    PORT_HOST = int(os.environ.get('PORT', 8000))
     URL_MAIN = 'http://%s:%s/' % (IP_HOST, PORT_HOST)
 
 class TestingConfig(Config):
@@ -39,7 +39,7 @@ class TestingConfig(Config):
     DEBUG = True
     IP_HOST = 'localhost' # Aqui geralmente é um IP de um servidor na
     #nuvem e não o endereço da máquina local
-    PORT_HOST = 5000
+    PORT_HOST = int(os.environ.get('PORT',  5000))
     URL_MAIN = 'http://%s:%s/' % (IP_HOST, PORT_HOST)
 
 class ProductionConfig(Config):
@@ -47,7 +47,7 @@ class ProductionConfig(Config):
     TESTING = False
     IP_HOST = 'localhost' # Aqui geralmente é um IP de um servidor na
     #nuvem e não o endereço da máquina local
-    PORT_HOST = 8080
+    PORT_HOST = int(os.environ.get('PORT', 8080))
     URL_MAIN = 'http://%s:%s/' % (IP_HOST, PORT_HOST)
 
 app_config = {

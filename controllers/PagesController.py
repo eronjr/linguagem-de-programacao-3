@@ -31,3 +31,4 @@ def login():
 			return render_template("login.html", message="Senha ou E-mail incorreto")
 	elif request.method == 'GET':
 		return render_template("login.html") 
+
