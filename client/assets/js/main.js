@@ -12,7 +12,7 @@ function updateGraphic() {
             categorias += item["attributes"][2]["nodeValue"] + "&"
     }
 
-    let url = `http://127.0.0.1:5000/api/indicadores_anual?${anos}&categoria=${categorias}`;
+    let url = `https://indicadoresrs.herokuapp.com/api/indicadores_anual?${anos}&categoria=${categorias}`;
     console.log(url)
     fetch(url)
         .then(image => image.blob())
