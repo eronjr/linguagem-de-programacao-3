@@ -104,18 +104,37 @@ class Indicadores:
         dados = np.array(lista_indices_criminais)
         
         dados = dados.reshape(12, td)
-        dados_df = pd.DataFrame(dados)
+                dados = dados.reshape(12, td)
         
+        dados_df = pd.DataFrame(dados, 
+            columns=anos,
+            index=['JAN',
+                    'FEV',
+                    'MAR',
+                    'ABR',
+                    'MAI',
+                    'JUN',
+                    'JUL',
+                    'AGO',
+                    'SET',
+                    'OUT',
+                    'NOV',
+                    'DEZ'],
+        )
         
+        anos_ = anos
         anos = '-'.join(map(str, anos))
 
         plot = dados_df.plot(
-            title=f"{keys_indicadores[coluna]} no RS durante os anos de {anos}"
+            xlabel="Meses do ano",
+            mark_right=False,
+            title=f"{keys_indicadores[coluna]} no RS nos anos de {anos}"
         )
 
         fig = plot.get_figure()
         path_indice = f"server/indicadores_graficos/indices_anos_{anos}_geral_{'-'.join(keys_indicadores[coluna].split())}.png"        
         fig.savefig(path_indice)
+        
         # return send_file(path_indice, mimetype='image/png')
         return  f"{DIR_ATUAL}/{path_indice}"
 
