@@ -1,4 +1,5 @@
 .env
 .database
+*.png
 database.ini 
 __pycache__
