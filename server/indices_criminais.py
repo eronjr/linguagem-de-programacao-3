@@ -104,7 +104,7 @@ class Indicadores:
         dados = np.array(lista_indices_criminais)
         
         dados = dados.reshape(12, td)
-                dados = dados.reshape(12, td)
+        dados = dados.reshape(12, td)
         
         dados_df = pd.DataFrame(dados, 
             columns=anos,
