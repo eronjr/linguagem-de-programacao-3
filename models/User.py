@@ -1,7 +1,9 @@
 from config import app_active, app_config
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 
 db = SQLAlchemy()
+
 
 class User:
     def __init__(self, email=None, password=None, username=None, id_=None):
@@ -10,7 +12,7 @@ class User:
         self.username = username
         self.id = id_
 
-class Users(db.Model):
+class Users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(120), nullable=False)
