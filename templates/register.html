@@ -36,7 +36,7 @@
     
         <nav class="navbar fixed-top navbar-light bg-primary">
             <div class="container">
-                <span class="text-title">Login</span>
+                <span class="text-title">Registrar</span>
             </div>
         </nav>
         <div class="main">
@@ -53,15 +53,21 @@
                                   {% endif %}
                                 {% endblock  %} -->                                                                  
                                 <div class="card-head">
-                                    <h3><strong>Fazer login</strong></h3>
+                                    <h3><strong>Registrar Usuário</strong></h3>
                                 </div>
                                 <div class="card-body">
+                                    
+                                    <div class="form-group fadeIn first">
+                                        {{ form.username }}
+                                        
+                                    </div>
+
                                     <div class="form-group fadeIn first">
                                         {{ form.email }}
-                                        <!-- <input type="email" id="email" placeholder="Usuário", name="email"> -->
+                                        
                                     </div>
                                     <div class="form-group fadeIn second">
-                                        <!-- <input type="password" id="password" placeholder="Senha", name="password"> -->
+                                        
                                         {{ form.password }}
                                     </div>
                                     <div class="form-group fadeIn third">
@@ -80,12 +86,12 @@
                                         {{ form.submit }} 
 
                                     </div>
-
+                                                                    
                                     <div class="form-group fadeIn third">
-                                        <a href="{{ url_for( 'web_app.register') }}">Fazer Cadastro</a>
+                                        <a href="{{ url_for( 'web_app.login') }}">Fazer Login</a>
 
                                     </div>
-
+                                        
                                 </div>
                             </form>
                         </div>
