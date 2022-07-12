@@ -87,7 +87,9 @@ body {
     border-bottom: 1px solid #E6E6E6;
 }
 
-.default-button {
+.default-button, input[type=submit]
+ {
+
     background-color: #3669f6;
     border: none;
     color: white;
@@ -102,7 +104,8 @@ body {
     border-radius: 10px 10px 10px 10px;
 }
 
-.default-button:hover  {
+.default-button:hover, input[type=submit]:hover
+  {
     background-color: #2b5ce1;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
