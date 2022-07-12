@@ -7,14 +7,13 @@ from config import app_config, app_active
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 from models.User import db
-
-
+from models.User import Users
 
 config = app_config[app_active]
 
 app = Flask(__name__,	
-		template_folder='client', #index.html/login.html
-		static_folder='client/assets' #css/js
+		# template_folder='templates', #index.html/login.html
+		# static_folder='client/assets' #css/js
 )
 
 db = SQLAlchemy(app)
@@ -40,11 +39,23 @@ app.app_context().push()
 
 db.create_all()
 
+from flask_login import LoginManager
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "web_app.login"
+
+@login_manager.user_loader
+def load_user(user_id):
+	return Users.query.get(int(user_id))
+
+
 
 #registrations; blueprints, template utilities, commands
 app.register_blueprint(user_bp, url_prefix='/api/users')
 app.register_blueprint(api_bp, url_prefix='/api')
 app.register_blueprint(web_bp, url_prefix='/')
+
 
 print("AppWeb Iniciado")
 
