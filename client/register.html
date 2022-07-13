@@ -13,17 +13,17 @@
         <!-- Logo símbolo -->
         <link rel="icon" type="#" href="#" />
 
-        
+
         <!-- Ícones -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
         
-         {% block style %}
+        {% block style %}
             {{ bootstrap.load_css() }}
         {% endblock style %}
 
         <!-- CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
 
         <!-- Fontes -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,7 +36,7 @@
     
         <nav class="navbar fixed-top navbar-light bg-primary">
             <div class="container">
-                <span class="text-title">Login</span>
+                <span class="text-title">Registrar</span>
             </div>
         </nav>
         <div class="main">
@@ -44,31 +44,54 @@
                 <div class="row justify-content-sm-center">
                     <div class="col-sm-8 col-md-6 col-lg-6 col-xl-4 col-xxl-4">
                         <div class="card">
-                           <form method="POST" action= "" id='form_login'>
+                            <form method="POST" action= "" id='form_login'>
                                 {{ form.hidden_tag() }}
-                                                                                
+                                <!-- {% block content %}
+                                 {% if message %}
+                                    <span style='color:red'>{{message}}</span>
+
+                                  {% endif %}
+                                {% endblock  %} -->                                                                  
                                 <div class="card-head">
-                                    <h3><strong>Fazer login</strong></h3>
+                                    <h3><strong>Registrar Usuário</strong></h3>
                                 </div>
                                 <div class="card-body">
+                                    
+                                    <div class="form-group fadeIn first">
+                                        {{ form.username }}
+                                        
+                                    </div>
+
                                     <div class="form-group fadeIn first">
                                         {{ form.email }}
-                
+                                        
                                     </div>
                                     <div class="form-group fadeIn second">
+                                        
                                         {{ form.password }}
                                     </div>
                                     <div class="form-group fadeIn third">
-                                        
+                                        <!-- <table>
+                                        <tr>
+                                        <th>
+                                            <button type="submit" class="default-button" onclick="verifyLogin()"><strong>Entrar</strong></button>    
+                                            
+                                        </th>
+                                        <th>
+                                            <button type="submit" class="default-button" id='register'><strong>Registrar</strong></button>
+                                        </th>
+                                        </tr>
+                                        </table> -->
+
                                         {{ form.submit }} 
 
                                     </div>
-
+                                                                    
                                     <div class="form-group fadeIn third">
-                                        <a href="{{ url_for( 'web_app.register') }}">Fazer Cadastro</a>
+                                        <a href="{{ url_for( 'web_app.login') }}">Fazer Login</a>
 
                                     </div>
-
+                                        
                                 </div>
                             </form>
                         </div>
@@ -81,7 +104,7 @@
 
         <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
         <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-    
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     
     </body>
 </html>
